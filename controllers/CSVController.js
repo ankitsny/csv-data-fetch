@@ -1,8 +1,7 @@
 
-const csv = require('csv-parser');
 const fs = require('fs');
 const path = require('path');
-const csv1 = require('csvtojson');
+const csv = require('csvtojson');
 
 const FILE_NAME = 'ranking.csv';
 
@@ -10,7 +9,7 @@ const qMap = {};
 const headers = 'QUESTION,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK,TITLE,BODY,SOURCE-ID,DOC-ID,RANK\n';
 
 fs.createReadStream(path.join(FILE_NAME))
-  .pipe(csv1())
+  .pipe(csv())
   .on('csv', (csvRow, rowIndex) => {
     const temp = {};
     qMap[csvRow[0]] = csvRow;
