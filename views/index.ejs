@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Some Title</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Hello</h1>
-  </body>
+<html ng-app="app">
+
+<head>
+  <title>Some Title</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <link rel="stylesheet" href="/libs/angular-bootstrap/ui-bootstrap-csp.css">
+  <link rel="stylesheet" href="/libs/bootstrap-css-only/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+  <script src='/libs/angular/angular.min.js'></script>
+  <script src='/libs/angular-bootstrap/ui-bootstrap.min.js'></script>
+  <script src='/libs/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+
+
+  <script src='/javascripts/app.js'></script>
+
+  <script src='/javascripts/service.js'></script>
+  <script src='/javascripts/mainController.js'></script>
+  <script src='/javascripts/modalController.js'></script>
+</head>
+
+<body ng-controller="MainController">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-10">
+        <div class="form-group">
+          <label for="">Question</label>
+          <input type="text" ng-model="asyncSelected" placeholder="Enter Question" uib-typeahead="question for question in getQuestions($viewValue)"
+            typeahead-loading="loadingLocations" typeahead-no-results="noResults" typeahead-show-hint="true" typeahead-min-length="2"
+            typeahead-on-select="itemSelected($item, $model)" class="form-control">
+          <hr>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <button class="btn btn-info" ng-click="addQuestion(true)" style="margin-top:24px;"><i class="fa fa-plus"></i> Add Question</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12" ng-show="selectedQuestion">
+
+        <div ng-repeat="i in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45]" style="border:1px solid gray; margin:3px;padding:3px;">
+          <p><b>TITLE: </b> {{selectedQuestionData[i+0]}} <span style="margin-left:10px;"><i ng-click="edit('TITLE', i+0+1, selectedQuestionData[i+0])" class="fa fa-pencil"></i></span></p>
+          <p><b>BODY: </b>{{selectedQuestionData[i+1]}} <span style="margin-left:10px;"><i ng-click="edit('BODY', i+1+1, selectedQuestionData[i+1])" class="fa fa-pencil"></i></span></p>
+          <p><b>SOURCE-ID: </b>{{selectedQuestionData[i+2]}} <span style="margin-left:10px;"><i ng-click="edit('SOURCE-ID', i+2+1, selectedQuestionData[i+2])" class="fa fa-pencil"></i></span></p>
+          <p><b>DOC-ID: </b>{{selectedQuestionData[i+3]}} <span style="margin-left:10px;"><i ng-click="edit('DOC-ID', i+3+1, selectedQuestionData[i+3])" class="fa fa-pencil"></i></span></p>
+          <p><b>RANK: </b>{{selectedQuestionData[i+4]}} <span style="margin-left:10px;"><i ng-click="edit('RANK', i+4+1, selectedQuestionData[i+4])" class="fa fa-pencil"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+<style>
+  b {
+    color: red;
+  }
+</style>
+
 </html>

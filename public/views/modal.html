@@ -1,0 +1,18 @@
+<div class="container-fluid" style="padding:10px;">
+    <div class="row">
+        <div class="col-xs-12" ng-if="showQuestionForm">
+            <span class="pull-right" ng-click="dismiss()"><i class="fa fa-close"></i></span>
+            <h2 style="text-align: center">Add Question</h2>
+            <input type="text" class="form-control" placeholder="Enter Question" ng-model="question">
+            <br>
+            <button class="btn btn-success pull-right" ng-click="postQuestion(question)">Submit</button>
+        </div>
+
+        <div class="col-xs-12" ng-if="!showQuestionForm">
+            <h2 style="text-align: center">{{prop}}</h2>
+            <input type="text" ng-value="value" class="form-control" placeholder="Enter {{prop}}" ng-model="newValue">
+            <br>
+            <button class="btn btn-success pull-right" ng-click="patchQuestion(newValue)">Update</button>
+        </div>
+    </div>
+</div>

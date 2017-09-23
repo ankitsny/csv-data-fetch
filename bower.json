@@ -1,0 +1,23 @@
+{
+  "name": "csv-data-fetch",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Ankit Kumar <ankit@unobridge.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.6",
+    "angular-bootstrap": "^2.5.0",
+    "bootstrap-css-only": "^3.3.7"
+  }
+}
